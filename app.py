@@ -1,14 +1,13 @@
 import gradio as gr
-from src.trasnformer import translate
+from src.translation import translate  # Adjust import path as per your project structure
 
-def gradio_translate(text):
-    translate_text = translate(text, source_lang = "en", target_lang = "es")
+# Function to translate text
+def gradio_translate(input_text):
+    translate_text = translate(input_text, source_lang="en", target_lang="es")
+    return translate_text
 
-input_text = gr.inputs.Textbox(label = "Enter text to translate to spanish")
-
-ouput_text = gr.outputs.Textbox(label = "Translated text")
-
-interface = gr.Interface(fn=gradio_translate, inputs=input_text, outputs=output_text, title="Text translation")
+# Create Gradio interface
+interface = gr.Interface(fn=gradio_translate, inputs="textbox", outputs="textbox")
 
 if __name__ == "__main__":
     interface.launch()
