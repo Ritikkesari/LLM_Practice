@@ -7,7 +7,7 @@ def gradio_translate(input_text):
     return translate_text
 
 # Create Gradio interface
-interface = gr.Interface(fn=gradio_translate, inputs="textbox", outputs="textbox")
+interface = gr.Interface(fn=gradio_translate, inputs=[gr.Textbox(label="English")], outputs=[gr.Textbox(label="Spanish")])
 
 if __name__ == "__main__":
     interface.launch()
