@@ -10,4 +10,4 @@ def gradio_translate(input_text):
 interface = gr.Interface(fn=gradio_translate, inputs=[gr.Textbox(label="English")], outputs=[gr.Textbox(label="Spanish")])
 
 if __name__ == "__main__":
-    interface.launch()
+    interface.launch(share=True)
